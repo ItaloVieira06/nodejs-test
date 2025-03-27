@@ -4,14 +4,18 @@ class oneToHundredStream extends Readable{
     index = 1
     _read(){
       const i = this.index++
+      setTimeout(() => {
+        
+        if (i > 100){
+          this.push(null)
+        } else{
+          const buf = Buffer.from(string(i))
 
-      if (i > 100){
-        this.push(null)
-      } else{
-        const buf = Buffer.from(string(i))
+          this.push(buf)
+        }
+        
+       }, 1000)
 
-        this.push(buf)
-      }
     }
 }
 
